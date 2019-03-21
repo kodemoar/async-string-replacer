@@ -1,0 +1,21 @@
+{
+  "name": "async-string-replacer",
+  "version": "1.0.0",
+  "description": "async-string-replacer",
+  "keywords": [
+    "webpack",
+    "loader",
+    "webpack-loader",
+    "string-replace",
+    "regex-replace"
+  ],
+  "main": "index.js",
+  "author": {
+    "name": "YST",
+    "email": "kodemoar@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github:kodemoar/async-string-replacer.git"
+  }
+}

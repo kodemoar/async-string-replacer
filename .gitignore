@@ -1,0 +1,5 @@
+.vscode
+*.suo
+*.njsproj
+*.sln
+node_modules/
