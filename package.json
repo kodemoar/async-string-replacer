@@ -10,7 +10,7 @@
     "regex-replace"
   ],
   "main": "index.js",
-  "devDependencies": {
+  "peerDependencies": {
     "webpack": "^4.0.0"
   },
   "author": {

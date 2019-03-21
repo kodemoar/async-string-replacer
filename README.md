@@ -34,7 +34,7 @@ module: {
 }
 ```
 
-Where `your.config.js` contains the RegExp rules for the string replacements. For example the following pattern allows you to MD5 hash all [Vue.js custom event][vue_ce] names (for whatever reason that is):
+Where `your.config.js` is your dedicated config file containing all the RegExp rules for the string replacements. For example the following pattern allows you to MD5 hash all [Vue.js custom event][vue_ce] names (for whatever reason that is):
 
 ```js
 const md5 = require('md5');
@@ -49,9 +49,11 @@ module.exports = [
 ]
 ```
 
-|Before|After|
-|------|-----|
+| Before | After |
+|--------|-------|
 | `vm.$emit('routes:changed');` | `vm.$emit('fe288a6cad4b10b92fdff65256df6713');` |
 
+## License
+[MIT](http://en.wikipedia.org/wiki/MIT_License)
 
 [vue_ce]: https://vuejs.org/v2/guide/components-custom-events
