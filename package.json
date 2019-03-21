@@ -10,12 +10,17 @@
     "regex-replace"
   ],
   "main": "index.js",
+  "devDependencies": {
+    "webpack": "^4.0.0"
+  },
   "author": {
     "name": "YST",
     "email": "kodemoar@gmail.com"
   },
+  "license": "MIT",
+  "homepage": "https://github.com/kodemoar/async-string-replacer",
   "repository": {
     "type": "git",
-    "url": "github:kodemoar/async-string-replacer.git"
+    "url": "https://github.com/kodemoar/async-string-replacer.git"
   }
 }

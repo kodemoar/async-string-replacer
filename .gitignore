@@ -1,5 +1,8 @@
 .vscode
-*.suo
 *.njsproj
+*.njsproj.user
 *.sln
+*.suo
+bin/
+obj/
 node_modules/
