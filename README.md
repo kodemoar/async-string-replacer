@@ -1,15 +1,16 @@
 # RegExp string-replacer for Webpack
+![Package version][package-ver-image] ![NPM unpublished][npm-image]
 
-Quoting [the doc on Asynchronous Loaders](https://webpack.js.org/api/loaders/#asynchronous-loaders):
+Quoting the doc on [Asynchronous Loaders](https://webpack.js.org/api/loaders/#asynchronous-loaders):
 > Loaders were originally designed to work in synchronous loader pipelines, like Node.js (using [`enhanced-require`](https://github.com/webpack/enhanced-require)), and asynchronous pipelines, like in Webpack. However, since expensive synchronous computations are a bad idea in a single-threaded environment like Node.js, we advise making your loader asynchronous if possible. Synchronous loaders are ok if the amount of computation is trivial.
 
 ## Install
 ```bash
-$ npm i -D async-string-replacer
+$ npm i -D kodemoar/async-string-replacer
 ```
 
 ## Usage
-In `webpack.config.js` add the loader right before the final processor like `babel-loader`.
+In `webpack.config.js` add the loader right before the last loader in the chain, like `babel-loader`.
 
 ```js
 module: {
@@ -49,11 +50,18 @@ module.exports = [
 ]
 ```
 
-| Before | After |
-|--------|-------|
+| Raw | Hashed |
+|-----|--------|
 | `vm.$emit('routes:changed');` | `vm.$emit('fe288a6cad4b10b92fdff65256df6713');` |
+
+⚠ This is not meant for JS obfuscation, for which you should instead use [Javascript obfuscator][npm-js-obfuscator] or [UglifyJS Webpack Plugin][npm-uglifyjs].
 
 ## License
 [MIT](http://en.wikipedia.org/wiki/MIT_License)
 
 [vue_ce]: https://vuejs.org/v2/guide/components-custom-events
+[npm-image]: https://img.shields.io/badge/npm-unpublished-orange.svg
+[package-ver-image]: https://img.shields.io/badge/version-1.0.0-blue.svg
+
+[npm-uglifyjs]: https://www.npmjs.com/package/uglifyjs-webpack-plugin
+[npm-js-obfuscator]: https://www.npmjs.com/package/javascript-obfuscator
