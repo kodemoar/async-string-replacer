@@ -1,6 +1,6 @@
 {
   "name": "async-string-replacer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "async-string-replacer",
   "keywords": [
     "webpack",
@@ -15,12 +15,12 @@
   },
   "author": {
     "name": "YST",
-    "email": "kodemoar@gmail.com"
+    "email": "yst@asia.com"
   },
   "license": "MIT",
-  "homepage": "https://github.com/kodemoar/async-string-replacer",
+  "homepage": "https://github.com/yst493/async-string-replacer",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kodemoar/async-string-replacer.git"
+    "url": "https://github.com/yst493/async-string-replacer.git"
   }
 }

@@ -1,22 +1,25 @@
 # RegExp string-replacer for Webpack
-![Package version][package-ver-image] ![NPM unpublished][npm-image]
+
+[![Package version][package-ver-image]](/) 
+[![NPM unpublished][npm-image]](/)
 
 Quoting the doc on [Asynchronous Loaders](https://webpack.js.org/api/loaders/#asynchronous-loaders):
 > Loaders were originally designed to work in synchronous loader pipelines, like Node.js (using [`enhanced-require`](https://github.com/webpack/enhanced-require)), and asynchronous pipelines, like in Webpack. However, since expensive synchronous computations are a bad idea in a single-threaded environment like Node.js, we advise making your loader asynchronous if possible. Synchronous loaders are ok if the amount of computation is trivial.
 
 ## Install
 ```bash
-$ npm i -D kodemoar/async-string-replacer
+$ npm i -D yst493/async-string-replacer
 ```
 
 ## Usage
-In `webpack.config.js` add the loader right before the last loader in the chain, like `babel-loader`.
+In `webpack.config.js` add it up right before the last loader in the chain (e.g. `babel-loader`):
 
 ```js
 module: {
   rules: [
     {
       test: /\.js$/,
+      exclude: /(node_modules|bower_components)/,
       use: [
         'babel-loader',
         {
@@ -25,9 +28,6 @@ module: {
             configFile: path.resolve(__dirname, './src/your.config.js')
           }
         }
-      ],
-      include: [
-        path.resolve(__dirname, 'src/') // Leave out node_modules
       ]
     },
     //...
@@ -35,15 +35,13 @@ module: {
 }
 ```
 
-Where `your.config.js` is your dedicated config file containing all the RegExp rules for the string replacements. For example the following pattern allows you to MD5 hash all [Vue.js custom event][vue_ce] names (for whatever reason that is):
+Where `your.config.js` is your dedicated config file containing all the RegExp rules for the string replacements. For example the following pattern allows you to [`md5`][npm-md5] hash all [Vue.js Custom Event][vue_ce] names (for whatever reason that is):
 
 ```js
-const md5 = require('md5');
-
 module.exports = [
   {
     pattern: /(?<=\$(emit|on|once|off)\(')\S+(?=')/ig,
-    replacement: md5
+    replacement: require('md5')
   },
   
   // More rules here
@@ -54,7 +52,9 @@ module.exports = [
 |-----|--------|
 | `vm.$emit('routes:changed');` | `vm.$emit('fe288a6cad4b10b92fdff65256df6713');` |
 
-⚠ This is not meant for JS obfuscation, for which you should instead use [Javascript obfuscator][npm-js-obfuscator] or [UglifyJS Webpack Plugin][npm-uglifyjs].
+Once configured and run, all files ending in `.js` (including `.vue` files, since they ultimately compile down to `.js`) will be processed by the loader, seaching up for these custom event names to hash.  
+
+⚠ This is not meant for JS obfuscation of some sort, in which case you should instead use [Javascript obfuscator][npm-js-obfuscator] or [UglifyJS Webpack Plugin][npm-uglifyjs].
 
 ## License
 [MIT](http://en.wikipedia.org/wiki/MIT_License)
@@ -65,3 +65,4 @@ module.exports = [
 
 [npm-uglifyjs]: https://www.npmjs.com/package/uglifyjs-webpack-plugin
 [npm-js-obfuscator]: https://www.npmjs.com/package/javascript-obfuscator
+[npm-md5]: https://www.npmjs.com/package/md5 "Message Digest 5 (one-way hash)"
