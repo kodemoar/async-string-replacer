@@ -1,14 +1,11 @@
 # RegExp string-replacer for Webpack
 
-[![Package version][package-ver-image]](/) 
-[![NPM unpublished][npm-image]](/)
-
 Quoting the doc on [Asynchronous Loaders](https://webpack.js.org/api/loaders/#asynchronous-loaders):
 > Loaders were originally designed to work in synchronous loader pipelines, like Node.js (using [`enhanced-require`](https://github.com/webpack/enhanced-require)), and asynchronous pipelines, like in Webpack. However, since expensive synchronous computations are a bad idea in a single-threaded environment like Node.js, we advise making your loader asynchronous if possible. Synchronous loaders are ok if the amount of computation is trivial.
 
 ## Install
 ```bash
-$ npm i -D yst493/async-string-replacer
+$ npm i -D yst138451/async-string-replacer
 ```
 
 ## Usage
@@ -60,9 +57,6 @@ Once configured and run, all files ending in `.js` (including `.vue` files, sinc
 [MIT](http://en.wikipedia.org/wiki/MIT_License)
 
 [vue_ce]: https://vuejs.org/v2/guide/components-custom-events
-[npm-image]: https://img.shields.io/badge/npm-unpublished-orange.svg
-[package-ver-image]: https://img.shields.io/badge/version-1.0.1-blue.svg
-
 [npm-uglifyjs]: https://www.npmjs.com/package/uglifyjs-webpack-plugin
 [npm-js-obfuscator]: https://www.npmjs.com/package/javascript-obfuscator
 [npm-md5]: https://www.npmjs.com/package/md5 "Message Digest 5 (one-way hash)"
